@@ -24,6 +24,11 @@ a:visited {
     grid-area:1/1/12/2;
     color:white;
 }
+.icon {
+    fill:white;
+    max-height:3vh;
+    width:3vw;
+}
 .main-container {
     grid-area:1/2/12/3;
     display:grid;
