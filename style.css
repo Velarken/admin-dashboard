@@ -1,10 +1,57 @@
 :root {
     --accent-color: rgb(202, 123, 3);
 }
+
 .page-container {
+    width:100vw;
+    height:100vh;
     display:grid;
     grid-template-columns:1fr 4fr;
+    grid-template-rows:repeat(10,1fr);
 }
+/* Left and Right Page Split */
 .sidebar {
     background-color: rgb(1, 145, 189);
+    grid-row:1/10;
+    grid-column: 1/2;
+    color:white;
+}
+.main-container {
+    grid-area:1/2/10/2;
+    display:grid;
+    grid-template:1fr 4fr /1fr;
+    border:1px solid blue;
+}
+/* Main Container Items */
+.header {
+    grid-area:1/1/1/2;
+
+    display:flex;
+    flex-direction:column;
+    background-color:rgb(104, 46, 46);
+}
+.content-container {
+    grid-area:2/1/10/3;
+    display:flex;
+    background-color:gray;
+}
+.card-container {
+    flex:3;
+    
+    grid-area:2/1/10/3;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(auto-fit,1fr);
+}
+.card {
+    width:100px;
+    height:100px;
+    border:1px solid red;
+}
+.content-sidebar {
+    flex:1;
+    grid-area:2/2/10/3;
+}
+ul {
+    list-style:none;
 }
