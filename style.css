@@ -1,0 +1,10 @@
+:root {
+    --accent-color: rgb(202, 123, 3);
+}
+.page-container {
+    display:grid;
+    grid-template-columns:1fr 4fr;
+}
+.sidebar {
+    background-color: rgb(1, 145, 189);
+}
