@@ -1,6 +1,9 @@
 :root {
     --accent-color: rgb(202, 123, 3);
     --light-blue:rgb(1, 145, 189);
+    --light-gray:rgb(163, 163, 163);
+    --light-gray-transparent: rgba(216, 216, 216, 0.719);
+    --card-background:white;
     font-family:sans-serif;
 }
 a:link {
@@ -11,12 +14,27 @@ a:visited {
     color:white;
     font-weight: 900;
 }
+ul {
+    list-style:none;
+}
+li {
+    align-items: center;
+    justify-content: center;
+}
+hr {
+    border: 2px solid var(--light-gray-transparent);
+    border-radius:4px;
+    width:90%;
+}
+
 .page-container {
-    width:100vw;
-    height:100vh;
+    width:98vw;
+    height:98vh;
     display:grid;
-    grid-template-columns:1fr 4fr;
-    grid-template-rows:repeat(10,1fr);
+    grid-template:repeat(10,1fr) / 1fr 4fr;
+    grid-auto-rows:1fr;
+    grid-auto-columns: 1fr;
+    
 }
 /* Left and Right Page Split */
 .sidebar {
@@ -24,15 +42,22 @@ a:visited {
     grid-area:1/1/12/2;
     color:white;
 }
+.sidebar-icon {
+    fill:white;
+    max-height:3vh;
+    width:3vw;
+    margin:3px 10px 3px -20px;
+}
 .icon {
     fill:white;
     max-height:3vh;
     width:3vw;
+    margin:3px 10px 3px 10px;
 }
 .main-container {
-    grid-area:1/2/12/3;
+    grid-area:1/2/12/5;
     display:grid;
-    grid-template:1fr 5fr / 1fr;
+    grid-template:repeat(10,1fr) / 1fr;
     border:1px solid blue;
 }
 
@@ -40,15 +65,28 @@ a:visited {
 
 /* Header */
 .header {
-    grid-area:1/1/1/3;
+    grid-area:1/1/2/3;
     display:grid;
-    grid-template:1fr 1fr / 1fr 1fr;
+    grid-template:1fr 1fr 1fr/ 1fr 1fr;
     background-color:rgb(255, 255, 255);
     align-items:center;
     justify-content: center;
 }
+.search {
+    grid-area:1/1/2/2;
+    display:flex;
+    justify-content: center;
+    align-self:center;
+}
+.search-bar {
+    background-color:var(--light-gray-transparent);
+    border-radius:18px;
+    border-color: yellow;
+    width:100%;
+    height:30%;
+}
 .buttons {
-    grid-area: 2/2/3/3;
+    grid-area: 3/2/3/3;
 }
 button {
     margin:10px;
@@ -62,44 +100,95 @@ button {
 .user-info {
     grid-area:1/2/2/3;
 }
-.search-bar {
-    background-color:gray;
-    border-radius:18px;
-    width:50%;
-    height:20%
-}
+
 /* Cards */
 .content-container {
-    grid-area:2/1/10/3;
+    grid-area:2/1/10/5;
     display:grid;
-    background-color:rgb(182, 182, 182);
+    grid-template:1fr/4fr 2fr;
+    gap:10px;
+    background-color:var(--light-gray-transparent);
     height:100%;
     width:100%;
 }
 .card-container {
-    grid-area:2/1/12/3;
+    grid-area:2/1/12/2;
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    grid-template-rows:1fr repeat(auto-fit,1fr);
+    grid-template-rows:1fr repeat(10,1fr);
     align-items: center;
     justify-content: center;
 }
 .card {
-    width:100px;
-    height:100px;
-    border:1px solid red;
+    display:flex;
+    flex-direction: row;
+    background-color: var(--card-background);
+    min-height:20rem;
+    margin:10px;
+    border-radius: 8px;
+    overflow: hidden;
 }
-ul {
-    list-style:none;
+.color-accent {
+    background-color: var(--accent-color);
+    height:340px;
+    width:30px;
 }
+.card-content {
+    display:grid;
+    grid-template:1fr 2fr 1fr / 1fr;
+    position:relative;
+    margin-left:5px;
+}
+.card-heading {
+    flex:1;
+    align-items: center;
+    text-align: center;
+}
+
+.card-text {
+    flex:1;
+    
+}
+.card-buttons {
+    grid-area:4/1/5/2;
+    display:flex;
+    justify-content: flex-end;
+
+}
+.admin-icon {
+    fill:white;
+    max-height:3vh;
+    width:3vw;
+    padding:0 0.25rem 0.5px 0.25rem;
+}
+
 /* Content Sidebar */
 .content-sidebar {
-    grid-area:1/3/10/4;
+    grid-area:1/2/10/3;
     display:grid;
     grid-template-columns: 1fr;
-    grid-template-rows:1fr 3fr 1fr 3fr;
+    grid-template-rows:repeat(10,1fr);
+    margin-right:20px;
 }
-.announcements, .trending {
+.announcements {
+    grid-area:2/1/5/2;
     flex:1;
-    border:1px solid palegoldenrod;
+    display:flex;
+    flex-direction: column;
+    background-color: var(--card-background);
+    border-radius:8px;
+    padding:10px;
+} 
+.trending {
+    grid-area:6/1/10/2;
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    background-color: var(--card-background);
+    border-radius:8px;
+    padding:10px;
+}
+.trending-item, .announcement-item {
+    flex:1;
+    
 }
